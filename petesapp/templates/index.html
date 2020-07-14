@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tapao Training</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">    
+    <script src="{% static 'js/script.js' %}"></script>
+
+</head>
+<body>
+    <h1>Tapao Fitness</h1>
+    <img src="place " alt="holder">
+
+    <div>
+        <h3> Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum velit corrupti pariatur! Error dolores voluptates voluptatibus deserunt sunt nulla aspernatur iste! Possimus error cupiditate aliquam eligendi minima, quia maiores assumenda!</h3>
+    </div>
+
+    
+    <img src="place" alt="holder">
+
+    <div>
+    
+        <form action="/login" method="POST">
+            {% csrf_token %}
+
+            <h3>Email: <input type="text" name="email_input"></h3>
+            <h3>Password: <input type="text" name="password_input"></h3>
+            <h3>Confirm Password: <input type="text" name="conpassword_input"></h3>
+
+            <input type="submit" value="Login">
+        
+        </form>
+    </div>
+    <div>
+        <img src="place " alt="hold">
+        <a href="/registration"> Click to create an account </a>
+    </div>
+    
+</body>
+</html>

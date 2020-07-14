@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login (user name)</title>
+</head>
+<body>
+    <h1>Hello {{current_user.first_name}} Welcome to your home page!! </h1>
+    <h3>Here are you goals:  {{current_user.workout_goals}} </h3>
+    <h4>Comments that are left for you: </h4>
+    
+        <h2>{{current_user.comment}}</h2>
+
+
+
+
+
+    {% for user in users %}
+        <div>
+            <h2>User {{user.first_name}} {{user.last_name}}</h2>
+
+
+            <form action="/comments" method="POST">
+
+                {% csrf_token %}
+
+                <h4>comment: <input type="text" name="comment_input"></h4>
+
+                <input type="submit" value="Post">
+            </form>
+
+
+    {% endfor %}
+
+
+
+</div>
+
+<a href="/logout">Log Out</a>
+
+
+    
+</body>
+</html>
