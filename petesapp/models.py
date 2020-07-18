@@ -12,7 +12,7 @@ class UserManager(models.Manager):
             errors ['last_name'] = "Please enter a valid last name"
         if not EMAIL_REGEX.match(postData['email_input']):
             errors['email'] = 'Please enter a valid email address'
-        if User.objects.filter(email=postData['email']).exists():
+        elif User.objects.filter(email=postData['email_input']).exists():
             errors['emailunique'] = "Email already registered, please login."
         if len(postData['password_input']) < 5:
              errors['password'] = 'please have a password greater than 5 Charaters'
@@ -46,11 +46,13 @@ class User(models. Model):
     objects = UserManager()
 
 class Comments(models. Model):
+    comment = models.CharField(max_length=255, null=True)
     user_comment = models.ForeignKey(User, related_name="comments", on_delete = models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
 class Video(models. Model):
     likes = models.ManyToManyField(User, related_name="user_likes")
+    comment = models.CharField(max_length=255)
     vid_comment= models.ForeignKey(User, related_name="vid_comments", on_delete = models.CASCADE)
     created_at = models.DateTimeField(auto_now=True)
 

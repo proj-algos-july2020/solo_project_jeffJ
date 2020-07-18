@@ -6,20 +6,27 @@
     <title>Login (user name)</title>
 </head>
 <body>
-    <h1>Hello {{current_user.first_name}} Welcome to your home page!! </h1>
-    <h3>Here are you goals:  {{current_user.workout_goals}} </h3>
-    <h4>Comments that are left for you: </h4>
+    <div>
+        <h1>Hello {{current_user.first_name}} Welcome to your home page!! </h1>
+        <h3>Here are you goals:  {{current_user.workout_goals}} </h3>
+    </div>
     
-        <h2>{{current_user.comment}}</h2>
+    <h4>Comments that are left for you: </h4>
+    <div>
+        {% for comment in current_user.comments.all %}
+            <h5>{{comment.comment}}</h5>
+            <h6>{{comment.created_at}}</h6>
+        {% endfor %}
+    </div>
 
-
-
-
-
-    {% for user in users %}
+    
         <div>
-            <h2>User {{user.first_name}} {{user.last_name}}</h2>
-
+            {% for user in users %}
+                <h2>User {{user.first_name}} {{user.last_name}}</h2>
+                <h5>comment:</h5>
+            {% for com in users.comments.comment%}
+            <h6>{{com}}</h6>
+            {% endfor %}
 
             <form action="/comments" method="POST">
 

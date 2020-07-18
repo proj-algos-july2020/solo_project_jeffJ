@@ -15,9 +15,9 @@ def user(request):
     if 'id' not in request.session:
         return redirect('/')
     context = { 
-        "current_user" : User.objects.get(id=request.session['id']),
-        "users" : User.objects.all(),
-        "comments": Comments.objects.all()
+        'current_user' : User.objects.get(id=request.session['id']),
+        'users': User.objects.all()
+
         
     }
     print(context['current_user'])
@@ -49,9 +49,11 @@ def reg(request):
     request.session['id'] = new_user.id 
     return redirect('/user')
 
-def comments(request):
-    Comments.objects.create(comments=request.POST['comment_input'])
-    return redirect('/user')
+# def comments(request):
+#     comment=Comments.objects.create(comment=request.POST['comment_input'], user_comment=User.objects.get(id=request.session['id']))
+
+#     print(comment)
+#     return redirect('/user')
 
 def logout(request):
     request.session.clear()
