@@ -19,23 +19,33 @@
         {% endfor %}
     </div>
 
+    <a href="/video">Let get to the work out session here</a>
+
     
         <div>
             {% for user in users %}
                 <h2>User {{user.first_name}} {{user.last_name}}</h2>
                 <h5>comment:</h5>
-            {% for com in users.comments.comment%}
-            <h6>{{com}}</h6>
-            {% endfor %}
+                {% for comment in user.comments.all%}
 
-            <form action="/comments" method="POST">
+                    <h5>{{comment.comment}}</h5>
+                    <h6>{{comment.user_posted.first_name}}</h6>
 
-                {% csrf_token %}
+                {% if request.session.id == comment.user_posted.id %}
+                <a href="/edit_comment/{{comment.id}}">edit</a> | <a href="/delete_comment/{{comment.id}}"><input type="button" value="Delete"></a>
+                {% endif%}
+                {% endfor %}
 
-                <h4>comment: <input type="text" name="comment_input"></h4>
+                <form action="/comments" method="POST">
 
-                <input type="submit" value="Post">
-            </form>
+                    {% csrf_token %}
+
+                    <h4>comment: <input type="text" name="comment_input"></h4>
+                    <input type="hidden" name="user_com" value="{{user.id}}">
+
+
+                    <input type="submit" value="Post">
+                </form>
 
 
     {% endfor %}

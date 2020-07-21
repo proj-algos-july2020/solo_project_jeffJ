@@ -11,7 +11,7 @@
 </head>
 <body>
     <h1>Tapao Fitness</h1>
-    <img src="place " alt="holder">
+    <img src=" " alt="holder">
 
     <div>
         <h3> Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum velit corrupti pariatur! Error dolores voluptates voluptatibus deserunt sunt nulla aspernatur iste! Possimus error cupiditate aliquam eligendi minima, quia maiores assumenda!</h3>
@@ -27,12 +27,19 @@
 
             <h3>Email: <input type="text" name="email_input"></h3>
             <h3>Password: <input type="text" name="password_input"></h3>
-            <h3>Confirm Password: <input type="text" name="conpassword_input"></h3>
+            <h3>Confirm Password: <input type="text" name="confirmpw_input"></h3>
 
             <input type="submit" value="Login">
-        
         </form>
+        {% if messages %}
+
     </div>
+    <ul class="messages">    
+        {% for message in messages %}    
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+    </ul>
+    {% endif %}
     <div>
         <img src="place " alt="hold">
         <a href="/registration"> Click to create an account </a>

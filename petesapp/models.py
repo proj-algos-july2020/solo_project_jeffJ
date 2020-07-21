@@ -30,7 +30,7 @@ class UserManager(models.Manager):
         if len(postData['password_input']) < 5:
              errors['password'] = 'Please enter an email that contains 5 or more character'
         if postData['confirmpw_input'] != postData['password_input']:
-            errors['confirm_pw'] = "Your password and what you typed in comfirm pw dont match try agian"
+            errors['confirm_pw'] = "Your passwords dont match"
         return errors
 
 
@@ -45,8 +45,9 @@ class User(models. Model):
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
 
-class Comments(models. Model):
+class Comments(models. Model): 
     comment = models.CharField(max_length=255, null=True)
+    user_posted = models.ForeignKey(User, related_name="poster", on_delete = models.CASCADE)
     user_comment = models.ForeignKey(User, related_name="comments", on_delete = models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
