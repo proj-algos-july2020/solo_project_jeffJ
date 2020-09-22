@@ -28,9 +28,7 @@ class UserManager(models.Manager):
         if not EMAIL_REGEX.match(postData['email_input']):
             errors['email'] = 'Please enter a valid Email address!'
         if len(postData['password_input']) < 5:
-             errors['password'] = 'Please enter an email that contains 5 or more character'
-        if postData['confirmpw_input'] != postData['password_input']:
-            errors['confirm_pw'] = "Your passwords dont match"
+            errors['password'] = 'Please enter an email that contains 5 or more character'
         return errors
 
 

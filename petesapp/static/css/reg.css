@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(../images/athletic.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+   }
+h3{
+    color: darkgrey;
+    vertical-align: auto;
+}

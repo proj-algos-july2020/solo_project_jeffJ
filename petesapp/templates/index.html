@@ -13,26 +13,20 @@
 
     <div class="container">
         <h1>Tapao Fitness</h1>
-
         <img src="static/images/1-2.png " alt="holder" id="logo">
-
         <br>
-
-        
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum velit corrupti pariatur! Error dolores voluptates voluptatibus deserunt sunt nulla aspernatur iste! Possimus error cupiditate aliquam eligendi minima, quia maiores assumenda!</h3>
-        
-
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum velit corrupti pariatur! Error dolores voluptates voluptatibus deserunt sunt nulla aspernatur iste! Possimus error cupiditate aliquam eligendi minima, quia maiores assumenda!</h3>
+ 
         <div id="vid">
             <iframe width="500" height="400" src="https://www.youtube.com/embed/rdmcDfK5wAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        <div>
+        <div id="login">
     
             <form action="/login" method="POST">
             {% csrf_token %}
 
                 <h3>Email: <input type="text" name="email_input"></h3>
                 <h3>Password: <input type="text" name="password_input"></h3>
-                <h3>Confirm Password: <input type="text" name="confirmpw_input"></h3>
 
                 <input type="submit" value="Login">
             </form>
@@ -46,7 +40,6 @@
             </ul>
             {% endif %}
         <div>
-            <img src="place " alt="hold">
             <a href="/registration"> Click to create an account </a>
         </div>
     </div>
