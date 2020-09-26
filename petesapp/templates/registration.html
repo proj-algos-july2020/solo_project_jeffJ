@@ -12,31 +12,44 @@
 
 
 
-    <h2>Registration</h2>
+    <h1>Registration</h1>
+    <div class="gif-container">
+        <div class="reg">
+            <form action="/reg" method="POST">
 
-    <form action="/reg" method="POST">
+                {% csrf_token %}
 
-        {% csrf_token %}
+                <p>Frist Name </p>
+                <input type="text" name="fname_input">
+                <p>Last Name</p>
+                <input type="text" name="lname_input">
+                <p>Email</p>
+                <input type="text" name="email_input">
+                <p>Password</p>
+                <input type="text" name="password_input">
+                <p>Confirm PW</p>
+                <input type="text" name="confirmpw_input">
+                <p>Tell me about you work out goals</p>
+                <textarea name="workout_input" id="" cols="50" rows="10"></textarea>
+                <br>
+                <input type="submit" value="Register">
+            </form>
+        </div>
+        <div class="messages">
 
-        <h3>Frist Name: <input type="text" name="fname_input"></h3>
-        <h3>Last Name: <input type="text" name="lname_input"></h3>
-        <h3>Email: <input type="text" name="email_input"></h3>
-        <h3>Password: <input type="text" name="password_input"></h3>
-        <h3>Confirm PW: <input type="text" name="confirmpw_input"></h3>
-        <h3>Tell me about you work out goals <textarea name="workout_input" id="" cols="50" rows="10"></textarea></h3>
+            {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        
+            
 
-        {% if messages %}
-        <ul class="messages">    
-            {% for message in messages %}    
-            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
-            {% endfor %}
-        </ul>
-        {% endif %}
-    
-        <input type="submit" value="Register">
-
-    </form>
-
+        
+    </div>
 
 
     
