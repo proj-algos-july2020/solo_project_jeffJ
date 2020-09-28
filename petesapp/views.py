@@ -16,12 +16,9 @@ def userPage(request):
         return redirect('/')
     context = { 
         'current_user' : User.objects.get(id=request.session['id']),
-        'users': User.objects.all(),
+        'users': User.objects.exclude(id=request.session['id']),
 
-    }
-
-
-    
+    }    
     print(context['current_user'])
 
     return render(request, 'user.html', context)
