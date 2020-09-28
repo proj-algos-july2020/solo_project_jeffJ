@@ -3,58 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login (user name)</title>
+    <title>Home Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/social.css' %}">    
+    <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
-    <div>
-        <h1>Hello {{current_user.first_name}} Welcome to your home page!! </h1>
-        <h3>Here are you goals:  {{current_user.workout_goals}} </h3>
-    </div>
-    
-    <h4>Comments that are left for you: </h4>
-    <div>
-        {% for comment in current_user.comments.all %}
-            <h5>{{comment.comment}}</h5>
-            <h6>{{comment.created_at}}</h6>
-        {% endfor %}
-    </div>
-
-    <a href="/video">Let get to the work out session here</a>
-
-    
-        <div>
-            {% for user in users %}
-                <h2>User {{user.first_name}} {{user.last_name}}</h2>
-                <h5>comment:</h5>
-                {% for comment in user.comments.all%}
-
+    <div class="container">
+        <div class="user">
+            <h1> Welcome back {{current_user.first_name}}  </h1>
+            <h3> Lets get to your goal of, {{current_user.workout_goals}}  </h3>
+            <a href="/video">Let get to the work out session here</a>
+        </div>
+        
+        <div class="usercomments">
+            <h4>Here are you Comments </h4>
+            <div>
+                {% for comment in current_user.comments.all %}
                     <h5>{{comment.comment}}</h5>
-                    <h6>{{comment.user_posted.first_name}}</h6>
+                    <h6>{{comment.created_at}}</h6>
+                {% endfor %}
+            </div>
+        </div>
 
-                {% if request.session.id == comment.user_posted.id %}
-                <a href="/edit_comment/{{comment.id}}">edit</a> | <a href="/delete_comment/{{comment.id}}"><input type="button" value="Delete"></a>
-                {% endif%}
+       
+
+        
+            <div class="users">
+                {% for user in users %}
+                    <h2>{{user.first_name}} {{user.last_name}}</h2>
+                    <h5>comment:</h5>
+                    {% for comment in user.comments.all%}
+
+                        <h5>{{comment.comment}}</h5>
+                        <h6>{{comment.user_posted.first_name}}</h6>
+
+                    {% if request.session.id == comment.user_posted.id %}
+                    <a href="/edit_comment/{{comment.id}}">edit</a> | <a href="/delete_comment/{{comment.id}}"><input type="button" value="Delete"></a>
+                    {% endif%}
+                    {% endfor %}
+
+                    <form action="/comments" method="POST">
+
+                        {% csrf_token %}
+
+                        <h4>comment: <input type="text" name="comment_input"></h4>
+                        <input type="hidden" name="user_com" value="{{user.id}}">
+
+
+                        <input type="submit" value="Post">
+                    </form>
+
+
                 {% endfor %}
 
-                <form action="/comments" method="POST">
-
-                    {% csrf_token %}
-
-                    <h4>comment: <input type="text" name="comment_input"></h4>
-                    <input type="hidden" name="user_com" value="{{user.id}}">
 
 
-                    <input type="submit" value="Post">
-                </form>
+            </div>
 
-
-    {% endfor %}
-
-
-
-</div>
-
-<a href="/logout">Log Out</a>
+        <a href="/logout">Log Out</a>
+    </div>
 
 
     
