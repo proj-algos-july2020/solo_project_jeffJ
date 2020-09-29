@@ -27,18 +27,28 @@
     background-color: rgb(152, 166, 208);
     display: inline-block;
     vertical-align: top;
-
 }
 .users{
 
         height: 0px auto;
         width: 300px;
         border-radius: 15px;
-        margin-left: 740px;
+        margin-left: 210px;
         padding: 10px;
         margin-top: 10px;
         background-color: rgb(152, 166, 208);
         display: inline-block;
+        vertical-align: top;
+}
 
-    
+.chat{
+    height: 0px auto;
+    width: 300px;
+    border-radius: 15px;
+    margin-left: 210px;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: rgb(152, 166, 208);
+    display: inline-block;
+    vertical-align: top;
 }
