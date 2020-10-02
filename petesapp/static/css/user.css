@@ -52,3 +52,16 @@
     display: inline-block;
     vertical-align: top;
 }
+
+.chatinput{
+    margin: 0px;
+    width: 300px;
+    height: 33px;
+}
+.chatbubble{
+    width: 300px;
+    height: 0px auto;
+    background-color: cornsilk;
+    font-style: normal;
+    
+}

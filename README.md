@@ -9,4 +9,6 @@ added more to more to registration page having issues running inline block for i
 
 fixed issue of logged in user showing in other user notes. 
 
-finalized css for user page decided to a new feature for chating with other users. 
+finalized css for user page decided to a new feature for chating with other users.
+ 
+css now include chat bubble futhering use of ajax to complete chat so back end is not so data is not over loaded. 

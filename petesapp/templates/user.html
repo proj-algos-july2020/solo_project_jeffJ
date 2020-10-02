@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/social.css' %}">    
+    <link rel="stylesheet" href="{% static 'css/user.css' %}">    
     <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
@@ -28,25 +28,32 @@
 
         <div class="chat">
             <h4>Welcome to chat with others</h4>
+            <div id="chatbubble">
+                <p>place holder for chat box</p>
+            </div>
+            {% csrf_token %}
+            <form action="/chatinput" method="POST">
+                <textarea name="chatinput" id="chatinput"></textarea>
+                <input type="submit" value="Post">
+            </form>
+
         </div>
 
 
-       
+    
+        <div class="users">
+            {% for user in users %}
+                <h2>{{user.first_name}} {{user.last_name}}</h2>
+                <h5>comment:</h5>
+                {% for comment in user.comments.all%}
 
-        
-            <div class="users">
-                {% for user in users %}
-                    <h2>{{user.first_name}} {{user.last_name}}</h2>
-                    <h5>comment:</h5>
-                    {% for comment in user.comments.all%}
+                <h5>{{comment.comment}}</h5>
+                <h6>{{comment.user_posted.first_name}}</h6>
 
-                        <h5>{{comment.comment}}</h5>
-                        <h6>{{comment.user_posted.first_name}}</h6>
-
-                    {% if request.session.id == comment.user_posted.id %}
-                    <a href="/edit_comment/{{comment.id}}">edit</a> | <a href="/delete_comment/{{comment.id}}"><input type="button" value="Delete"></a>
-                    {% endif%}
-                    {% endfor %}
+                {% if request.session.id == comment.user_posted.id %}
+                <a href="/edit_comment/{{comment.id}}">edit</a> | <a href="/delete_comment/{{comment.id}}"><input type="button" value="Delete"></a>
+                {% endif%}
+                {% endfor %}
 
                     <form action="/comments" method="POST">
 
@@ -64,7 +71,7 @@
 
 
 
-            </div>
+        </div>
 
         <a href="/logout">Log Out</a>
     </div>

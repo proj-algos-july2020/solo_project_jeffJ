@@ -17,7 +17,6 @@ def userPage(request):
     context = { 
         'current_user' : User.objects.get(id=request.session['id']),
         'users': User.objects.exclude(id=request.session['id']),
-
     }    
     print(context['current_user'])
 
