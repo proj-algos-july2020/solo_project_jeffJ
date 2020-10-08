@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from .models import *
 from django.contrib import messages
+from .forms import Chat
 import bcrypt
 
 # Create your views here.
@@ -8,15 +9,20 @@ import bcrypt
 def index(request):
     return render(request, 'index.html')
 
+def classes(req):
+    return render(req, 'classes.html')
+
 def registration(request):
     return render(request, 'registration.html')
 
 def userPage(request):
     if 'id' not in request.session:
         return redirect('/')
+    chat = Chat()
     context = { 
         'current_user' : User.objects.get(id=request.session['id']),
         'users': User.objects.exclude(id=request.session['id']),
+        'chat' : chat
     }    
     print(context['current_user'])
 
@@ -56,6 +62,11 @@ def regPost(request):
     request.session['name']=user.first_name
     request.session['id'] = user.id 
     return redirect('/user')
+
+def chat(request):
+
+    print(request.POST)
+    return HttpResponse('yep working')
 
 def comments(request):
 

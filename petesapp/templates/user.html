@@ -31,11 +31,12 @@
             <div id="chatbubble">
                 <p>place holder for chat box</p>
             </div>
+            <form class= "chatinput" action="chat" method="POST">
             {% csrf_token %}
-            <form action="/chatinput" method="POST">
-                <textarea name="chatinput" id="chatinput"></textarea>
-                <input type="submit" value="Post">
+            {{chat}}
+            <input type="submit">
             </form>
+
 
         </div>
 

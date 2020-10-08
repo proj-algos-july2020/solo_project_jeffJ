@@ -12,3 +12,9 @@ fixed issue of logged in user showing in other user notes.
 finalized css for user page decided to a new feature for chating with other users.
  
 css now include chat bubble futhering use of ajax to complete chat so back end is not so data is not over loaded. 
+
+Company wanted a redesign and decided that he wanted a responsive web page going with new design.
+
+Have updated home page with bootstrap and now super responsive still working on tool bar to have a floating feature to scroll. 
+
+

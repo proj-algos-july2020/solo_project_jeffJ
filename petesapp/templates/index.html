@@ -1,48 +1,105 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tapao Training</title>
+    <title>Document</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">    
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">    
     <script src="{% static 'js/script.js' %}"></script>
 
 </head>
 <body>
 
-    <div class="container">
-        <h1>Tapao Fitness</h1>
-        <img src="static/images/1-2.png " alt="holder" id="logo">
-        <br>
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum velit corrupti pariatur! Error dolores voluptates voluptatibus deserunt sunt nulla aspernatur iste! Possimus error cupiditate aliquam eligendi minima, quia maiores assumenda!</h3>
- 
-        <div id="vid">
-            <iframe width="500" height="400" src="https://www.youtube.com/embed/rdmcDfK5wAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div id="login">
-    
-            <form action="/login" method="POST">
-            {% csrf_token %}
-
-                <h3>Email: <input type="text" name="email_input"></h3>
-                <h3>Password: <input type="text" name="password_input"></h3>
-
-                <input type="submit" value="Login">
-            </form>
-            {% if messages %}
-
-        </div>
-            <ul class="messages">    
-                {% for message in messages %}    
-                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
-            {% endfor %}
-            </ul>
-            {% endif %}
-        <div>
-            <a href="/registration"> Click to create an account </a>
-        </div>
+  <!-- floating nav -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="navbar-brand text-light" href="/" > Com3unity </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link text-light" href="/">About<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="/classes">Classes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light" href="#">Login</a>
+          </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  text-light" href="#">Communit</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+      </form>
     </div>
-    
-</body>
+  </nav>
+
+
+</div>
+
+ <!-- body intergrated -->
+
+  <h1 class="site-heading text-center text-white d-none d-lg-block">
+    <span class="site-heading-upper text-white mb-3">Workingout together for cause</span>
+    <span class="site-heading-lower">Com3unity</span>
+  </h1>
+
+  <section class="page-section clearfix">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="static\images\profile.jpg" alt="">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-upper">Coach</span>
+            <span class="section-heading-lower">Peter Tapao</span>
+          </h2>
+          <p class="mb-3"> We can break barriers by building a commintiy through fitness. When a group of people come together for a commin together was push, work, and over come anything. COM3UNITY is not just a noun its an adjitive that brings action to what ever we do. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="cta-inner text-center rounded">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-upper">Our Promise</span>
+              <span class="section-heading-lower">To You</span>
+            </h2>
+            <p class="mb-0">When you walk into our shop to start your day, we are dedicated to providing you with friendly service, a welcoming atmosphere, and above all else, excellent products made with the highest quality ingredients. If you are not satisfied, please let us know and we will do whatever we can to make things right!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer text-faded text-center py-5">
+    <div class="container">
+      <p class="m-0 small">Copyright &copy; Your Website 2020</p>
+    </div>
+  </footer>
+
+
+  </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            
+  </body>
 </html>
