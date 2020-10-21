@@ -12,6 +12,9 @@ def index(request):
 def classes(req):
     return render(req, 'classes.html')
 
+def appointment(req):
+    return render(req, 'appointment.html')
+
 def registration(request):
     return render(request, 'registration.html')
 

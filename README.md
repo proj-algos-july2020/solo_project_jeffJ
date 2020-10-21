@@ -17,4 +17,4 @@ Company wanted a redesign and decided that he wanted a responsive web page going
 
 Have updated home page with bootstrap and now super responsive still working on tool bar to have a floating feature to scroll. 
 
-
+pictures pictures uploaded and index is completed. card stock pictures need to be resized on classes page. 

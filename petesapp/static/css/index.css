@@ -154,7 +154,7 @@ p {
 
 .text-primary {
   color: #e6a756 !important;
-}
+
 
 .bg-primary {
   background-color: #e6a756 !important;
@@ -177,6 +177,8 @@ p {
 .font-weight-light {
   font-weight: 100 !important;
 }
-.navbar-toggler{
+.navbar-toggle{
+    background-color: darkgrey;
     color: darkgrey;
+    outline-style: solid; color: darkgrey;
 }
