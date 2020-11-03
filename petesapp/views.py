@@ -12,13 +12,10 @@ def index(request):
 def classes(req):
     return render(req, 'classes.html')
 
-def appointment(req):
-    return render(req, 'appointment.html')
-
 def registration(request):
     return render(request, 'registration.html')
 
-def userPage(request):
+def gym(request):
     if 'id' not in request.session:
         return redirect('/')
     chat = Chat()
@@ -29,7 +26,7 @@ def userPage(request):
     }    
     print(context['current_user'])
 
-    return render(request, 'user.html', context)
+    return render(request, 'gym.html', context)
 
 def videos(request):
     print(request.session['id'])
