@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.index),
     path('classes', views.classes),
     path('gym', views.gym),
+    path('regForm', views.regForm),
 
     # path('login', views.login),
     # path('registration', views.registration),

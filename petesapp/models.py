@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 import re
 
 # Create your models here.
@@ -6,10 +7,6 @@ class UserManager(models.Manager):
     def validator(self, postData):
         errors = {}
         EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
-        if len(postData['fname_input']) < 2:
-            errors ['first_name'] = "Please enter a valid first name"
-        if len(postData['lname_input']) < 2:
-            errors ['last_name'] = "Please enter a valid last name"
         if not EMAIL_REGEX.match(postData['email_input']):
             errors['email'] = 'Please enter a valid email address'
         elif User.objects.filter(email=postData['email_input']).exists():
@@ -18,8 +15,6 @@ class UserManager(models.Manager):
              errors['password'] = 'please have a password greater than 5 Charaters'
         if postData['confirmpw_input'] != postData['password_input']:
             errors['confirm_pw'] = "Your password and what you typed in comfirm pw dont match try agian"
-        if len(postData['workout_input']) < 20:
-            errors['workout_goals'] = "Tell us more why your working out."
         return errors
 
     def login_validator(self, postData):
@@ -34,14 +29,12 @@ class UserManager(models.Manager):
 
 
 class User(models. Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    username = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
-    workout_goals = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    objects = UserManager()
+    
 
 class Comments(models. Model): 
     comment = models.CharField(max_length=255, null=True)
@@ -49,11 +42,9 @@ class Comments(models. Model):
     user_comment = models.ForeignKey(User, related_name="comments", on_delete = models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
-class Video(models. Model):
-    likes = models.ManyToManyField(User, related_name="user_likes")
-    comment = models.CharField(max_length=255)
-    vid_comment= models.ForeignKey(User, related_name="vid_comments", on_delete = models.CASCADE)
-    created_at = models.DateTimeField(auto_now=True)
+
+
+
 
 
 

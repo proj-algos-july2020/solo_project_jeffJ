@@ -1,7 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from .models import *
 from django.contrib import messages
-from .forms import Chat
 import bcrypt
 
 # Create your views here.
@@ -12,8 +10,6 @@ def index(request):
 def classes(req):
     return render(req, 'classes.html')
 
-def registration(request):
-    return render(request, 'registration.html')
 
 def gym(request):
     if 'id' not in request.session:
@@ -27,10 +23,6 @@ def gym(request):
     print(context['current_user'])
 
     return render(request, 'gym.html', context)
-
-def videos(request):
-    print(request.session['id'])
-    return render(request, 'vids.html')
 
 def login(request):
     errors = User.objects.login_validator(request.POST)
@@ -48,16 +40,16 @@ def login(request):
         # prints (request.session['id'])        
     return redirect('/')
 
-def regPost(request):
+def regForm(request):
     errors = User.objects.validator(request.POST)
     if len(errors)>0:
         for key, value in errors.items():
             messages.error(request, value)
-        return redirect('/registration')
+        return redirect('/')
 
     hash_pw = bcrypt.hashpw(request.POST['password_input'].encode(), bcrypt.gensalt()).decode()
 
-    user=User.objects.create(first_name=request.POST['fname_input'], last_name=request.POST['lname_input'], email=request.POST['email_input'], password=hash_pw, workout_goals=request.POST['workout_input'])
+    user=User.objects.create(email=request.POST['email_input'],  username=request.POST['user_name'], password=hash_pw,)
 
     request.session['name']=user.first_name
     request.session['id'] = user.id 
