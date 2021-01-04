@@ -19,11 +19,9 @@ class UserManager(models.Manager):
 
     def login_validator(self, postData):
         errors = {}
-        EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
-        if not EMAIL_REGEX.match(postData['email_input']):
-            errors['email'] = 'Please enter a valid Email address!'
-        if len(postData['password_input']) < 5:
-            errors['password'] = 'Please enter an email that contains 5 or more character'
+        if not User.objects.filter(username=postData["username"]).exists():
+            errors['unamevalid'] = "User Name or passcode not valid"
+
         return errors
 
 
@@ -35,6 +33,7 @@ class User(models. Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
+    objects = UserManager()
 
 class Comments(models. Model): 
     comment = models.CharField(max_length=255, null=True)

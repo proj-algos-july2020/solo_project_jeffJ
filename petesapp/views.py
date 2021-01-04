@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib import messages
+from petesapp.models import *
 import bcrypt
 
 # Create your views here.
@@ -11,54 +12,42 @@ def classes(req):
     return render(req, 'classes.html')
 
 
-def gym(request):
-    if 'id' not in request.session:
-        return redirect('/')
-    chat = Chat()
-    context = { 
-        'current_user' : User.objects.get(id=request.session['id']),
-        'users': User.objects.exclude(id=request.session['id']),
-        'chat' : chat
-    }    
-    print(context['current_user'])
+# def gym(request):
+#     if 'id' not in request.session:
+#         return redirect('/')
+#     chat = Chat()
+#     context = { 
+#         'current_user' : User.objects.get(id=request.session['id']),
+#         'users': User.objects.exclude(id=request.session['id']),
+#         'chat' : chat
+#     }    
+#     print(context['current_user'])
 
-    return render(request, 'gym.html', context)
+#     return render(request, 'gym.html', context)
 
 def login(request):
-    errors = User.objects.login_validator(request.POST)
-    if len(errors)>0:
-        for key, value in errors.items():
-            messages.error(request, value)
-        return redirect('/')
-    user = User.objects.filter(email=request.POST['email_input'])
+    user = User.objects.filter(username=request.POST['username'])
     if user:
         user = user[0]
-        if bcrypt.checkpw(request.POST['password_input'].encode(), user.password.encode()):
-            request.session['first_name'] = user.first_name
+        if bcrypt.checkpw(request.POST['password'].encode(), user.password.encode()):
             request.session['id'] = user.id 
-            return redirect('/user')
+            return redirect('/gym')
         # prints (request.session['id'])        
     return redirect('/')
 
 def regForm(request):
-    errors = User.objects.validator(request.POST)
-    if len(errors)>0:
-        for key, value in errors.items():
-            messages.error(request, value)
-        return redirect('/')
-
     hash_pw = bcrypt.hashpw(request.POST['password_input'].encode(), bcrypt.gensalt()).decode()
 
-    user=User.objects.create(email=request.POST['email_input'],  username=request.POST['user_name'], password=hash_pw,)
+    user=User.objects.create(email=request.POST['email_input'],  username=request.POST['username_input'], password=hash_pw,)
 
-    request.session['name']=user.first_name
+    request.session['name']=user.username
     request.session['id'] = user.id 
-    return redirect('/user')
+    return redirect('/gym')
 
-def chat(request):
+def gym(request):
 
     print(request.POST)
-    return HttpResponse('yep working')
+    return render(request, 'gym.html')
 
 def comments(request):
 

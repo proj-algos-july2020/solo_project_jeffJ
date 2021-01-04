@@ -1,39 +1,45 @@
-$(function() {
-    // Initialize form validation on the registration form.
-    // It has the name attribute "registration"
-    $("form[name='registration']").validate({
-      // Specify validation rules
-      rules: {
-        // The key name on the left side is the name attribute
-        // of an input field. Validation rules are defined
-        // on the right side
-        firstname: "required",
-        lastname: "required",
-        email: {
-          required: true,
-          // Specify that email should be validated
-          // by the built-in "email" rule
-          email: true
-        },
-        password: {
-          required: true,
-          minlength: 5
-        }
+$().ready(function() {
+  $("#registration").validate({
+    rules: {
+      username_input: {
+        required : true,
+        minlength: 3
+
       },
-      // Specify validation error messages
-      messages: {
-        firstname: "Please enter your firstname",
-        lastname: "Please enter your lastname",
-        password: {
-          required: "Please provide a password",
-          minlength: "Your password must be at least 5 characters long"
-        },
-        email: "Please enter a valid email address"
+
+      email_input: {
+        required: true, 
+        email: true
       },
-      // Make sure the form is submitted to the destination defined
-      // in the "action" attribute of the form when valid
-      submitHandler: function(form) {
-        form.submit();
+      password_input: {
+        required: true, 
+        minlength: 5, 
+ 
+      },
+      confirm_pw: {
+        required: true, 
+        equalTo: "#password"
       }
-    });
+
+    },
+    messages: {
+      username_input: {
+        required: "Please provide a username",
+        minlength: "Username must containe more than 3 characters"
+      },
+      email_input: {
+        required: "Please enter an email address",
+        email: "Please add a valid email address"
+      },
+      password_input: {
+        required: "Please add a password",
+        minlength: "Password must be a minimum of 5 characters"
+      },
+      confirm_pw: {
+        required: "reconfirm you password",
+        equalTo: "Password does not match"
+      }
+    }
+
   });
+});
