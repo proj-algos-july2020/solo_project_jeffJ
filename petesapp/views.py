@@ -11,6 +11,9 @@ def index(request):
 def classes(req):
     return render(req, 'classes.html')
 
+def about(request):
+    return render(request, 'about.html')
+
 
 # def gym(request):
 #     if 'id' not in request.session:

@@ -15,13 +15,12 @@
 
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/gym.css' %}">    
+    <link rel="stylesheet" href="{% static 'css\gym.css' %}">    
     <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
 
     <div class="container-fluid">
-
         <div class="jumbotron jumbotron-fluid">
             <h1 class="display-4">Welcom to the Com3 Unity Gym</h1>
             <p class="lead">As you wait for the coach to enter the room, please chat with one another in the waiting area. You can also send private messages to each other by clicking on the user name with who you want to chat with. .</p>
@@ -32,34 +31,19 @@
                     <iframe allow="microphone; camera" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%;" src="https://success.zoom.us/wc/join/{meeting-id}" frameborder="0"></iframe>
                 </div>               
             </div>
-            <div class="col-3">
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Welcome to the waiting room </h3>
-                    </div>
-                    <div class="card-body">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Welcome to the waiting room </h3>
+                </div>
+                <div class="card-body">
                       This is some text within a card body.
-                    </div>
-                  </div>
+                </div>
                 <div class="message-input">
                     <input type="text" placeholder="Write your message..." />
                     <button type="button" class="btn btn-secondary">Secondary</button>
                     </div>
                 </div>
-
-            <div class="col">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Gym Members Online</h3>
-                    </div>
-                    <div class="card-body">
-
-                    </div>
-                </div>
-            </div>
-                
-        
+                        
         </div>
 
 
