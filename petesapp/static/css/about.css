@@ -23,18 +23,12 @@ h6 {
     color: antiquewhite;
   }
 
-.carousel-inner{
-    width: auto;
-    height: 400px;
+  .carousel-inner{
+    /* position: relative; */
+    width: 1110px;
+    height: 300px;
     margin-top: 15px;
     margin-bottom: 15px;
     padding: 5px;  
    
   }
-  .carousel-item img{
-    width: auto;
-    height: auto;
-    margin: auto; 
-    padding: auto;
-    display: block;
-    }
