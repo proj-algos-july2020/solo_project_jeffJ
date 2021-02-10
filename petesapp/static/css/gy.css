@@ -4,7 +4,6 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  padding: 20px;
 }
 
 h1,
@@ -16,6 +15,10 @@ h6 {
   font-family: 'Raleway';
 
 }
+p {
+  line-height: 1.75;
+}
+
 
 .jumbotron{
   background-color: rgb(184, 183, 183);
@@ -37,13 +40,13 @@ h6 {
   background-color: rgb(243, 241, 231, 0.3);
 }
 .message-input{
-  height: 40px;
-  padding-top: 5px;
+  /* height: 40px;
+  padding-top: 5px; */
+
 
 }
 #textarea{
-  margin-left: 50px;
-  width: 400px;
+  width: 100%;
 }
 
 .btn-secondary{
@@ -54,4 +57,4 @@ h6 {
 
 
 
-}
+} 

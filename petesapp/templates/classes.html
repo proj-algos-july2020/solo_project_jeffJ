@@ -17,7 +17,7 @@
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId=649411619055809&autoLogAppEvents=1" nonce="zceEojnQ"></script>
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/class.css' %}">    
+    <link rel="stylesheet" href="{% static 'css/classes.css' %}">    
     <script src="{% static 'js/script.js' %}"></script>
 
 </head>
@@ -32,25 +32,73 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link text-light" href="/">About<span class="sr-only">(current)</span></a>
-        </li>
         <li class="nav-item">
           <a class="nav-link text-light" href="/classes">Classes</a>
         </li>
-        <!-- Trigger the modal with a button -->
         <li class="nav-item">
-            <a class="nav-link text-light" href="" data-toggle="modal" data-target="#modalLogin">Registration</a>
-          </li>
+          <a class="nav-link text-light" href="/about">Coach</a>
+        </li>
+        <!-- Trigger the modal registration -->
+        <li class="nav-item">
+          <a class="nav-link text-light" href="" data-toggle="modal" data-target="#modalRegistration">Registration</a>
+        </li>
+        <!-- Trigger the modal login to gym -->
+        <li class="nav-item">
+          <a class="nav-link text-light" href="" data-toggle="modal" data-target="#modalLogin">Online Gym</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  text-light" href="/gym">Online Gym</a>
+          <a class="nav-link text-light" href="https://teespring.com/stores/com3unity-fitness">Shop</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-      </form>
-    </div>
+    <form class="form-inline my-2 my-lg-0">
+    </form>
   </nav>
+
+  <div class="container-fluid">
+    <!--Modal: Registrations -->
+    <div class="modal fade" id="modalRegistration">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Registration</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+              {% csrf_token %}
+              <label for="createform">Create User</label>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="username_input" aria-describedby="emailHelp" placeholder="Create a User Name" name="username_input">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email Address" name="email_input">
+              </div>
+              <div class="form-group">
+                <input type="" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Create a Password" name="password_input">
+              </div>
+              <div class="form-group"> 
+                <input type="" class="form-control" id="confirm_pw" aria-describedby="emailHelp" placeholder="Confirm Password" name="confirm_pw">
+              </div>
+              <small id="apilog" class="form-text text-muted">Create an Account with the Google or Facebook.</small>
+                    <!-- google login -->
+              <div class="g-signin2" data-onsuccess="onSignIn">
+              </div>
+                    
+                      <!-- facebook login -->
+              <div class="fb-login-button" data-size="small" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
+              
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" id="submitButton">Create Account</button>
+              </div>
+            </div>
+          </form>
+          
+
+        </div>
+      </div>
+    </div>
 </div>
 <div class="container">
   <!--Modal: Login -->
@@ -88,6 +136,11 @@
       </div>
     </div>
   </div>  
+
+          
+          <form  id="registration" action="/regForm" method='POST' name = "registration">
+            <div class="modal-body">
+
 
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -143,7 +196,7 @@
           <img class="card-img-top" src="static\images\kicking.jpg" alt="">
           <div class="card-body">
             <h4 class="card-title">Kickboxing Boot Camp </h4>
-            <p class="card-text">This Boot Camp is all about cardio. We will kick your calories "bye bye" with this non challenging fun routines. </p>
+            <p class="card-text">This Boot Camp is all about cardio. We will kick your calories "bye bye" with this challenging fun routine. </p>
           </div>
           <div class="card-footer">
             <a href="https://tapao.leapfroglive.com/meetings" class="btn btn-primary">Book an Appointment</a>
@@ -156,7 +209,7 @@
           <img class="card-img-top" src="static\images\dumbells.jpg" alt="">
           <div class="card-body">
             <h4 class="card-title">Strength and Conditioning </h4>
-            <p class="card-text">This Dumbbell and body weight routine, is designed to build strength endurance. This is great for overall sports events as well as everyday life, these routine are designed to give you the tools to endure life's obstacles .</p>
+            <p class="card-text">This Dumbbell and body weight routine, is designed to build strength endurance. This is great for overall sports events as well as everyday life, this routine is designed to give you the tools to endure life's obstacles .</p>
           </div>
           <div class="card-footer">
             <a href="https://tapao.leapfroglive.com/meetings" class="btn btn-primary">Book an Appointment</a>
@@ -209,7 +262,8 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>        
 
 </body>
 </html>
