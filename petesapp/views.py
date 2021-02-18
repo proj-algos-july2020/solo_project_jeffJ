@@ -47,14 +47,15 @@ def regForm(request):
     request.session['id'] = user.id 
     return redirect('/gym')
 
+def schedule(req):
+    return render(req, 'schedule.html')
+
 def gym(request):
 
     print(request.POST)
     return render(request, 'gym.html')
 
 def comments(request):
-
-
     Comments.objects.create(comment=request.POST['comment_input'], user_posted=User.objects.get(id=request.session['id']), user_comment=User.objects.get(id=request.POST['user_com']))
 
     

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Schedual</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
+
+    <!-- api login -->
+
+    <script type="text/javascript" src="<https://assets.calendly.com/assets/external/widget.js"></script> 
+
+    
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="1053478992773-mfruhlrlbjeqsldp519jbl9jsibajree.apps.googleusercontent.com">
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId=649411619055809&autoLogAppEvents=1" nonce="zceEojnQ"></script>
+
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css\schedule.css' %}">    
+    <script src="{% static 'js/schedule.js' %}"></script>
+
+    <script>Calendly.initInlineWidget({
+        url: 'https://calendly.com/YOURLINK',
+        parentElement: document.getElementById('SAMPLEdivID'),
+        prefill: {},
+        utm: {}
+       });</script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="navbar-brand text-light" href="/" > Com3unity </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link text-light" href="/classes">Classes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light" href="/about">Coach</a>
+        </li>
+        <!-- Trigger the modal registration -->
+        <li class="nav-item">
+            <a class="nav-link text-light" href="" data-toggle="modal" data-target="#modalRegistration">Registration</a>
+        </li>
+        <!-- Trigger the modal login to gym -->
+        <li class="nav-item">
+            <a class="nav-link text-light" href="" data-toggle="modal" data-target="#modalLogin">Online Gym</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light" href="https://teespring.com/stores/com3unity-fitness">Shop</a>
+        </li>
+        </ul>
+    <form class="form-inline my-2 my-lg-0">
+    </form>
+    </nav>
+
+    <div class="container-fluid">
+    <!--Modal: Registrations -->
+    <div class="modal fade" id="modalRegistration">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">Registration</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+
+                {% csrf_token %}
+                <label for="createform">Create User</label>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="username_input" aria-describedby="emailHelp" placeholder="Create a User Name" name="username_input">
+                </div>
+                <div class="form-group">
+                <input class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email Address" name="email_input">
+                </div>
+                <div class="form-group">
+                <input type="" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Create a Password" name="password_input">
+                </div>
+                <div class="form-group"> 
+                <input type="" class="form-control" id="confirm_pw" aria-describedby="emailHelp" placeholder="Confirm Password" name="confirm_pw">
+                </div>
+                <small id="apilog" class="form-text text-muted">Create an Account with the Google or Facebook.</small>
+                    <!-- google login -->
+                <div class="g-signin2" data-onsuccess="onSignIn">
+                </div>
+                    
+                        <!-- facebook login -->
+                <div class="fb-login-button" data-size="small" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
+                
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" id="submitButton">Create Account</button>
+                </div>
+            </div>
+            </form>
+            
+
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/petertapao/test-test" style="min-width:320px;height:630px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+<!-- Calendly inline widget end -->
+   <!-- Calendly inline widget end -->
+
+<footer class="py-3 bg-dark">
+    <div class="row justify-content-center">
+      <div class="d-flex justify-content-center">
+        <a href="https://www.facebook.com/groups/233610927712957" class="fa fa-facebook"></a>
+        <a href="https://www.instagram.com/coach_father_pete/" class="fa fa-instagram"></a>
+        <a href="https://www.youtube.com/channel/UC0dKV1l8R6mn4ONb1F8b7Rw" class="fa fa-youtube"></a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+      </div>
+    </div>
+    
+  </footer> 
+
+    
+    
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
+
+</html>

@@ -8,6 +8,7 @@ urlpatterns = [
     path('regForm', views.regForm),
     path('login', views.login),
     path('about', views.about),
+    path("schedule", views.schedule),
     # path('registration', views.registration),
     # path('reg', views.regPost),
     # path('comments', views.comments),
