@@ -37,7 +37,7 @@ p {
 
 .card-body{
   height: 100px;
-  background-color: rgb(243, 241, 231, 0.3);
+  background-color: rgba(244, 248, 246, 0.3);
 }
 .message-input{
   /* height: 40px;
@@ -46,12 +46,13 @@ p {
 
 }
 #textarea{
-  width: 100%;
+  width: 90%;
 }
 
 .btn-secondary{
   background-color: grey;
   color: black;
+  width: 8%;
   margin-bottom: 2px;
   padding: 3px;
 

@@ -6,14 +6,11 @@ body {
     background-size: cover;
 }
 
-h1,
-h2,
-h4,
-h5,
-h6 {
-  font-family: 'Raleway';
+h2,h3 {
+  font-family: 'Alex Brush', cursive;
+  font-weight: 400;
+  font-style: bold;
 }
-
 
 .navbar-toggler{
     background-color: rgb(105, 105, 103);
@@ -22,31 +19,34 @@ h6 {
 .navbar-toggler-icon{
     color: antiquewhite;
   }
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
 
 .section-heading {
   margin-top: 50px;
   width: 100%;
-  text-transform: uppercase;
+
 }
 
 .section-heading .section-heading-upper {
   display: block;
-  font-size: 4rem;
-  font-weight: 800;
+  font-weight: 300;
+  text-transform: uppercase;
 }
 
 .section-heading .section-heading-lower {
-  display: block;
-  font-size: 3rem;
-  font-weight: 100;
+  font-family: 'Alex Brush', cursive;
+  font-weight: 400;
+  font-style: italic;
+
 }
 
-.carousel-item{
+.intro {
+  font-family: "Alex Brush script=latin rev=2";
+  font-weight: 400;
+  font-style: normal;
+  color: azure;
+
+}
+/* .carousel-item{
   transition: transform 2s ease, opacity .5s ease-out; 
 }
 
@@ -82,7 +82,7 @@ h6 {
   font-family: "Sofia", sans-serif;;
   color: rgba(247, 247, 58, 0.808);
   font-style: italic;
-}
+} */
 
 .bwimg{
   margin-top: 90px;
@@ -92,9 +92,10 @@ h6 {
 
 
 @media (min-width: 996px){
+  
 
 
-  .carousel{
+  /* .carousel{
     display: none;
     width: 100%;
     height: 400px;
@@ -120,14 +121,14 @@ h6 {
   }
   .carousel-control-next{
     margin-right: 250px;
-  }
+  } */
 
   .bodycontent{
     margin:0 auto;
     overflow:hidden;
     position: relative;
-
   }
+
   .intro{
     display: none;
     margin-left: 100px;
@@ -136,9 +137,18 @@ h6 {
   .bwimg{
     display: none;
     margin-top: 90px;
-    height: 500px;
+    height: 450px;
     width: 500px;
     margin-right: 150px;
+  }
+
+  .pushimg{
+    display: none;
+    height: 400px;
+    width: 700px;
+    z-index: 4;
+    margin-left: 300px;
+    
   }
 
 .regmodal{
@@ -155,11 +165,7 @@ h6 {
   
 }
 
-.intro {
-  margin-top: 15px;
-  background-color: rgba(255, 255, 255, 0.75);
-  border: 0.25rem solid rgba(255, 255, 255, 0.85)
-}
+
 
 footer {
   margin-top: 1200px;

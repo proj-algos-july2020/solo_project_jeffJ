@@ -52,14 +52,18 @@ def schedule(req):
 
 def gym(request):
 
-    print(request.POST)
-    return render(request, 'gym.html')
+    context = {
+        'comments' : Comments.objects.all(),
+
+    }
+
+    return render(request, 'gym.html', context)
 
 def comments(request):
     Comments.objects.create(comment=request.POST['comment_input'], user_posted=User.objects.get(id=request.session['id']), user_comment=User.objects.get(id=request.POST['user_com']))
 
     
-    return redirect('/user')
+    return redirect('/gym')
 
 def deleteComment(request, comments_id):
     toDelete = Comments.objects.get(id=comments_id)

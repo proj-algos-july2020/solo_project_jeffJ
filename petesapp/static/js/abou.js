@@ -2,9 +2,11 @@ $().ready(function() {
 
 
   if ($(window).width() > 996){
-    $('.intro').fadeIn(4000),
-    $('.carousel').fadeIn(9000),
-    $('.bwimg').fadeIn(12000)
+    // $('.intro').fadeIn(4000);
+    $(".pushimg").scroll(function(){
+      console.log('test for scroll');
+      $('this').fadeIn("slow");
+    });
   }else{
     console.log('small screen')
     $('.carousel').css('display', 'none')

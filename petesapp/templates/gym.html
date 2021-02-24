@@ -15,7 +15,7 @@
 
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css\gy.css' %}">    
+    <link rel="stylesheet" href="{% static 'css\gym.css' %}">    
     <script src="{% static 'js/gym.js' %}"></script>
 </head>
 <body>
@@ -59,47 +59,40 @@
 
     <!-- <div class="container-fluid"> -->
         <div class="jumbotron jumbotron-fluid">
-            <h1 class="display-4">Welcom to the Com3 Unity Gym</h1>
-            <p class="lead">As you wait for the coach to enter the room, please chat with one another in the waiting area.</p>
+          <h1 class="display-4">Welcom to the Com3 Unity Gym</h1>
+          <p class="lead">As you wait for the coach to enter the room, please chat with one another in the waiting area.</p>
 
-            <a href="/logout">logout</a>
+          <a href="/logout">logout</a>
 
         </div>
         <div class="row">
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Welcome to chat with others</h4>
-                            
-            <!-- <form class= "chatinput" action="chat" method="POST">
-            {% csrf_token %}
-            {{chat}}
-            <input type="submit">
-            </form> -->
-                    </div>
-                    <div class="card-body">
-                        <div id="chatbubble">
-                            <p>place holder for chat box</p>
-                        </div>
-                        <div class="chat"></div>
-                    </div>
-                    <div class="message-input">
-                        <form  action="/comments" method="POST">
-                        {% csrf_token %}
-                            <input id="textarea" type="text" name="comment_input" placeholder="Write your message..." />
-                            <button type="submit" value="POST" class="btn btn-secondary">send</button>
-                        </form>
+          <div class="col-lg-4">
+              <div class="card">
+                <div class="card-header">
+                  <h4>Welcome to chat with others</h4>
+                </div>
+                <div class="card-body">
+                    <div id="chatbubble">
+                        <p>{{comments.comment}}</p>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-5">
-                <div class="iframe-container" style="overflow: hidden; padding-top: 56.25%; position: relative;">
-                <iframe allow="microphone; camera" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%;" src="https://success.zoom.us/wc/join/{meeting-id}" frameborder="0"></iframe>
-            </div>               
+                <div class="message-input">
+                    <form  action="/comments" method="POST">
+                    {% csrf_token %}
+                        <input id="textarea" type="text" name="comment_input" placeholder="Write your message..." />
+                        <button type="submit" value="POST" class="btn btn-secondary">send</button>
+                    </form>
+                </div>
+              </div>
+          </div>
+          <div class="col-lg-5">
+              <div class="iframe-container" style="overflow: hidden; padding-top: 56.25%; position: relative;">
+              <iframe allow="microphone; camera" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%;" src="https://success.zoom.us/wc/join/{meeting-id}" frameborder="0"></iframe>
+          </div>               
         </div>
                         
     <!-- </div> -->
-
+    
 
 
 
