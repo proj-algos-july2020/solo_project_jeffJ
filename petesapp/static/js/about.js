@@ -2,14 +2,10 @@ $().ready(function() {
 
 
   if ($(window).width() > 996){
-    // $('.intro').fadeIn(4000);
-    $(".pushimg").scroll(function(){
-      console.log('test for scroll');
-      $('this').fadeIn("slow");
+    $('.intro').fadeIn(4000);
+    $(document).scroll(function(){
+      $(".pushimg").fadeIn(4000);
     });
-  }else{
-    console.log('small screen')
-    $('.carousel').css('display', 'none')
   };
 
   function onSignIn(googleUser) {

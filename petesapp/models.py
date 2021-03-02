@@ -41,6 +41,13 @@ class Comments(models. Model):
     user_comment = models.ForeignKey(User, related_name="comments", on_delete = models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
+class Contact(models. Model):
+    name = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    question = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
 
 
 

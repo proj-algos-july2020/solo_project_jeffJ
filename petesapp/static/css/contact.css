@@ -1,0 +1,25 @@
+body {
+    font-family: Lora;
+    background-image: linear-gradient(rgba(5, 5, 5, 0.65),rgba(5, 5, 5, 0.65)),url(../images/comunity_logo.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+h1{
+    color: white;
+}
+
+label{
+    color: white;
+    margin: 15px;
+}
+
+.form-control{
+    margin-left: 15px;
+    width: 400px;
+}
+
+button{
+    margin-left: 15px;
+}
